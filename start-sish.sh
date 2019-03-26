@@ -1,7 +1,11 @@
 #!/bin/bash
 
+echo "Trying to stop docker, no problem if it throws an error here"
+sudo docker stop sish
 sudo docker rm sish
+echo "Stopping Apache"
 sudo service apache2 stop
+echo "Running docker"
 sudo docker run -itd --name sish \
         -v ~/sish/ssl:/ssl \
         -v ~/sish/keys:/keys \
